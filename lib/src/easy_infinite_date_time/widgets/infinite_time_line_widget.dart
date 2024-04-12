@@ -133,7 +133,7 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
     _initItemExtend();
     _attachEasyController();
     _daysCount =
-        EasyDateUtils.calculateDaysCount(widget.firstDate, widget.lastDate);
+        EasyDateUtils.calculateDaysCount(widget.firstDate, widget.lastDate, widget.inactiveDates);
     _controller = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback((_) => _jumpToInitialOffset());
   }
@@ -210,8 +210,21 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                   ///
                   /// The [firstDate] is the starting date from which the duration is added.
                   /// The [index] represents the number of days to be added to the [firstDate].
+                  final List<DateTime> AllDates = [];
+                  //add dates from firstDate to lastDate including lastDate and firstDate
+                  for (int i = 0; i <= widget.lastDate.difference(widget.firstDate).inDays; i++) {
+                    AllDates.add(widget.firstDate.add(Duration(days: i)));
+                  }
+                  //remove inactive dates from AllDates
+                  if (widget.inactiveDates != null) {
+                    for (DateTime inactiveDate in widget.inactiveDates!) {
+                      if (AllDates.contains(inactiveDate)){
+                          AllDates.remove(inactiveDate);
+                      }
+                    }
+                  }
                   final currentDate =
-                      widget.firstDate.add(Duration(days: index));
+                      AllDates[index];
 
                   /// Checks if the [_focusDate] is the same day as [currentDate].
                   bool isSelected =
