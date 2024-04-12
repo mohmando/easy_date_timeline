@@ -77,6 +77,7 @@ final class EasyDayProps {
       'Use `inactiveDayStyle` instead. '
       'This feature was deprecated after v0.0.7',
     )
+    this.YearStyle,
     this.inactiveMothStrStyle,
     this.landScapeMode = false,
     this.todayHighlightColor,
@@ -134,6 +135,8 @@ final class EasyDayProps {
   /// The text style applied to the month string when the day is active.
   final TextStyle? activeMothStrStyle;
 
+  final TextStyle? YearStyle;
+
   /// The text style applied to the month string when the day is inactive.
   final TextStyle? inactiveMothStrStyle;
 
@@ -175,6 +178,8 @@ enum DayStructure {
 
   /// Displays the day of the week abbreviated name only. Example: "Mon".
   dayNameOnly,
+
+  yearMonth,
 }
 
 /// An enumeration that defines the possible highlight styles for the current day in the date timeline.

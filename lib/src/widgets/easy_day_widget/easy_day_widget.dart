@@ -254,6 +254,17 @@ class EasyDayWidget extends StatelessWidget {
     );
   }
 
+//          _buildYear(isToday),
+//          _buildMonthString(isToday),
+
+  DayInfoText _buildYear(bool isToday) {
+    return DayInfoText(
+      text: EasyDateFormatter.fullYear(date, locale),
+      textStyle: easyDayProps.YearStyle,
+    );
+    
+  }
+
   /// Builds a `DayInfoText` widget for the day number.
   ///
   /// This method returns a `DayInfoText` widget that displays the day number of the current date.
@@ -340,6 +351,11 @@ class EasyDayWidget extends StatelessWidget {
   }) {
     List<Widget> items = [];
     switch (structure) {
+      case Daystructure.yearMonth:
+        items = [
+          _buildMonth(isToday),
+          _buildYear(isToday),
+        ];
       case DayStructure.dayNumberOnly:
         items = [
           _buildDayNumber(isToday),

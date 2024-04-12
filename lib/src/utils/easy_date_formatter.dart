@@ -31,4 +31,8 @@ abstract class EasyDateFormatter {
   static String fullDateDMY(DateTime date, String locale) {
     return DateFormat("dd/MM/yyyy", locale).format(date);
   }
+
+  static String fullYear(DateTime date, String locale) {
+    return DateFormat("yyyy", locale).format(date);
+  }
 }
