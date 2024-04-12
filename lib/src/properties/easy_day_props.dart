@@ -81,6 +81,7 @@ final class EasyDayProps {
     this.landScapeMode = false,
     this.todayHighlightColor,
     this.todayHighlightStyle = TodayHighlightStyle.withBorder,
+    this.YearStyle,
   });
 
   /// The properties applied to the active day.
@@ -133,6 +134,8 @@ final class EasyDayProps {
 
   /// The text style applied to the month string when the day is active.
   final TextStyle? activeMothStrStyle;
+
+  final TextStyle? YearStyle;
 
   /// The text style applied to the month string when the day is inactive.
   final TextStyle? inactiveMothStrStyle;
