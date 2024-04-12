@@ -78,7 +78,8 @@ class EasyDayWidget extends StatelessWidget {
       dayDecoration = _todayDecoration;
     }
 
-    return InkWell(
+    return isDisabled ? Container() :
+    InkWell(
       // if the day is disabled then make it not clickable.
       onTap: isDisabled ? null : onDayPressed,
       //borderRadius: _dayBorderRadius(isToday),
