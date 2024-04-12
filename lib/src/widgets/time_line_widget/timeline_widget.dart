@@ -174,7 +174,18 @@ class _TimeLineWidgetState extends State<TimeLineWidget> {
                     );
             },
             separatorBuilder: (context, index) {
-              return SizedBox(
+              bool isDisabledDay = false;
+              if (widget.inactiveDates != null) {
+                final currentDate = DateTime(initialDate.year, initialDate.month, index + 1);
+                for (DateTime inactiveDate in widget.inactiveDates!) {
+                  if (EasyDateUtils.isSameDay(currentDate, inactiveDate)) {
+                    isDisabledDay = true;
+                    break;
+                  }
+                }
+              }
+
+              return isDisabledDay ? const SizedBox() : SizedBox(
                 width: _timeLineProps.separatorPadding,
               );
             },
