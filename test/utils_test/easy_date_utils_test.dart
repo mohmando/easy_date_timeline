@@ -57,7 +57,7 @@ void main() {
     test('calculateDaysCount returns correct count of days', () {
       final firstDate = DateTime(2022, 1, 1);
       final lastDate = DateTime(2022, 1, 7);
-      final daysCount = EasyDateUtils.calculateDaysCount(firstDate, lastDate);
+      final daysCount = EasyDateUtils.calculateDaysCount(firstDate, lastDate, null);
       expect(daysCount, 7);
     });
   });

@@ -133,7 +133,7 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
     _initItemExtend();
     _attachEasyController();
     _daysCount =
-        EasyDateUtils.calculateDaysCount(widget.firstDate, widget.lastDate);
+        EasyDateUtils.calculateDaysCount(widget.firstDate, widget.lastDate, widget.inactiveDates);
     _controller = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback((_) => _jumpToInitialOffset());
   }
