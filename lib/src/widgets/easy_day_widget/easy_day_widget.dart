@@ -254,13 +254,34 @@ class EasyDayWidget extends StatelessWidget {
     );
   }
 
-//          _buildYear(isToday),
-//          _buildMonthString(isToday),
-
   DayInfoText _buildYear(bool isToday) {
+    final activeMothStrStyle = _activeDayStyle.monthStrStyle ??
+      easyDayProps.activeMothStrStyle ??
+      EasyTextStyles.monthStrStyle.copyWith(
+        color: activeTextColor,
+    );
+    final inactiveMothStrStyle = _inactiveDayStyle.monthStrStyle ??
+        easyDayProps.inactiveMothStrStyle ??
+        EasyTextStyles.monthStrStyle;
+    final todayMonthStrStyle = _todayStyle.monthStrStyle ??
+        easyDayProps.todayMonthStrStyle ??
+        EasyTextStyles.monthStrStyle;
+
+    final disabledMonthStrStyle = _disabledDayStyle.monthStrStyle ??
+        EasyTextStyles.monthStrStyle.copyWith(
+          color: EasyColors.disabledDayColor,
+        );
+    TextStyle monthStyle = inactiveMothStrStyle;
+    if (isSelected) {
+      monthStyle = activeMothStrStyle;
+    } else if (isDisabled) {
+      monthStyle = disabledMonthStrStyle;
+    } else if (isToday) {
+      monthStyle = todayMonthStrStyle;
+    }
     return DayInfoText(
       text: EasyDateFormatter.fullYear(date, locale),
-      textStyle: easyDayProps.YearStyle,
+      textStyle: monthStyle,
     );
     
   }
