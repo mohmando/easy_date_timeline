@@ -223,7 +223,6 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                       }
                     }
                   }
-                  print('index: $index');
                   final currentDate =
                       AllDates[index];
 
