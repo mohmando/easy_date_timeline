@@ -244,7 +244,7 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                       }
                     }
                   }
-                  return isDisabledDay ? null : Padding(
+                  return Padding(
                     key: ValueKey<DateTime>(currentDate),
                     padding: EdgeInsetsDirectional.only(
                       end: _timeLineProps.separatorPadding,
