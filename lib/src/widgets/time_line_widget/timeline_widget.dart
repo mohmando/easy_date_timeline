@@ -155,13 +155,13 @@ class _TimeLineWidgetState extends State<TimeLineWidget> {
                   }
                 }
               }
-              return widget.itemBuilder != null
+              return isDisabledDay ? const SizedBox() : widget.itemBuilder != null
                   ? _dayItemBuilder(
                       context,
                       isSelected,
                       currentDate,
                     )
-                  : isDisabledDay ? const SizedBox() : EasyDayWidget(
+                  : EasyDayWidget(
                       easyDayProps: _dayProps,
                       date: currentDate,
                       locale: widget.locale,
