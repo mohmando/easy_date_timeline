@@ -155,9 +155,7 @@ class _TimeLineWidgetState extends State<TimeLineWidget> {
                   }
                 }
               }
-              print('$isDisabledDay : $currentDate');
-
-              return isDisabledDay ? const SizedBox() : widget.itemBuilder != null
+              return widget.itemBuilder != null
                   ? _dayItemBuilder(
                       context,
                       isSelected,
@@ -176,18 +174,7 @@ class _TimeLineWidgetState extends State<TimeLineWidget> {
                     );
             },
             separatorBuilder: (context, index) {
-              bool isDisabledDay = false;
-              if (widget.inactiveDates != null) {
-                final currentDate = DateTime(initialDate.year, initialDate.month, index + 1);
-                for (DateTime inactiveDate in widget.inactiveDates!) {
-                  if (EasyDateUtils.isSameDay(currentDate, inactiveDate)) {
-                    isDisabledDay = true;
-                    break;
-                  }
-                }
-              }
-
-              return isDisabledDay ? const SizedBox() : SizedBox(
+              return SizedBox(
                 width: _timeLineProps.separatorPadding,
               );
             },
