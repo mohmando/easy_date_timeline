@@ -231,12 +231,13 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                       }
                     }
                   }
-                  return Padding(
+                  print('$isDisabledDay : $currentDate');
+                  return isDisabledDay ? const SizedBox() : Padding(
                     key: ValueKey<DateTime>(currentDate),
                     padding: EdgeInsetsDirectional.only(
                       end: _timeLineProps.separatorPadding,
                     ),
-                    child: isDisabledDay ? const SizedBox() : widget.itemBuilder != null
+                    child: widget.itemBuilder != null
                         ? _dayItemBuilder(
                             context,
                             isSelected,
