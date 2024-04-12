@@ -49,6 +49,6 @@ abstract class EasyDateUtils {
   /// Calculates the number of days between the [firstDate] and [lastDate] inclusive.
   /// Returns the count of days.
   static int calculateDaysCount(DateTime firstDate, DateTime lastDate, List<DateTime>? inactiveDates) {
-    return lastDate.difference(firstDate).inDays + 1 - (inactiveDates?.length ?? 0);
+    return lastDate.difference(firstDate).inDays  - (inactiveDates?.length ?? 0);
   }
 }
