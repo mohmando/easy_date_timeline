@@ -155,6 +155,8 @@ class _TimeLineWidgetState extends State<TimeLineWidget> {
                   }
                 }
               }
+              print('$isDisabledDay : $currentDate');
+
               return isDisabledDay ? const SizedBox() : widget.itemBuilder != null
                   ? _dayItemBuilder(
                       context,

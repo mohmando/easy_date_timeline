@@ -64,7 +64,6 @@ class EasyDayWidget extends StatelessWidget {
     final height = isLandScapeMode ? easyDayProps.width : easyDayProps.height;
     // Check if the date is today and if it should be highlighted with a background or a border
     final isToday = EasyDateUtils.isToday(date);
-    print('$isDisabled : $date');
 
     // This code block assigns the BoxDecoration object dayDecoration with _inactiveDayDecoration by default.
     // It then checks if the day is selected or disabled and updates the dayDecoration object accordingly.
