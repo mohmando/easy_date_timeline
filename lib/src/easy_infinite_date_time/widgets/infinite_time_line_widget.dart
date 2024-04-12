@@ -236,7 +236,7 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                     padding: EdgeInsetsDirectional.only(
                       end: _timeLineProps.separatorPadding,
                     ),
-                    child: widget.itemBuilder != null
+                    child: isDisabledDay ? const SizedBox() : widget.itemBuilder != null
                         ? _dayItemBuilder(
                             context,
                             isSelected,
