@@ -223,7 +223,6 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                       }
                     }
                   }
-                  print(AllDates);
                   final currentDate =
                       AllDates[index];
 
