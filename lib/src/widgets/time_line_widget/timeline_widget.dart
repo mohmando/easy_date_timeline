@@ -161,7 +161,7 @@ class _TimeLineWidgetState extends State<TimeLineWidget> {
                       isSelected,
                       currentDate,
                     )
-                  : EasyDayWidget(
+                  : isDisabledDay ? const SizedBox() : EasyDayWidget(
                       easyDayProps: _dayProps,
                       date: currentDate,
                       locale: widget.locale,
