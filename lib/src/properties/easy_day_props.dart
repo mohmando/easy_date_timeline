@@ -77,11 +77,11 @@ final class EasyDayProps {
       'Use `inactiveDayStyle` instead. '
       'This feature was deprecated after v0.0.7',
     )
-    this.YearStyle,
     this.inactiveMothStrStyle,
     this.landScapeMode = false,
     this.todayHighlightColor,
     this.todayHighlightStyle = TodayHighlightStyle.withBorder,
+    this.YearStyle,
   });
 
   /// The properties applied to the active day.
