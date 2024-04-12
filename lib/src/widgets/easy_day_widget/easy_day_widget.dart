@@ -351,7 +351,7 @@ class EasyDayWidget extends StatelessWidget {
   }) {
     List<Widget> items = [];
     switch (structure) {
-      case Daystructure.yearMonth:
+      case DayStructure.yearMonth:
         items = [
           _buildMonth(isToday),
           _buildYear(isToday),
