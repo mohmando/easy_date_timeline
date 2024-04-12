@@ -133,7 +133,7 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
     _initItemExtend();
     _attachEasyController();
     _daysCount =
-        EasyDateUtils.calculateDaysCount(widget.firstDate, widget.lastDate, widget.inactiveDates);
+        EasyDateUtils.calculateDaysCount(widget.firstDate, widget.lastDate);
     _controller = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback((_) => _jumpToInitialOffset());
   }
@@ -247,7 +247,7 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                   print('i : $index');
                   print('$isDisabledDay : $currentDate');
                   print('_itemExtend : $_itemExtend');
-                  return isDisabledDay ? null : Padding(
+                  return Padding(
                     key: ValueKey<DateTime>(currentDate),
                     padding: EdgeInsetsDirectional.only(
                       end: _timeLineProps.separatorPadding,
