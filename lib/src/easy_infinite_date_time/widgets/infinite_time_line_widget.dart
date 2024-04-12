@@ -234,6 +234,7 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                   print('_daysCount : $_daysCount');
                   print('i : $index');
                   print('$isDisabledDay : $currentDate');
+                  print('_itemExtend : $_itemExtend');
                   return isDisabledDay ? const SizedBox() : Padding(
                     key: ValueKey<DateTime>(currentDate),
                     padding: EdgeInsetsDirectional.only(
