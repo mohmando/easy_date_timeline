@@ -210,8 +210,20 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                   ///
                   /// The [firstDate] is the starting date from which the duration is added.
                   /// The [index] represents the number of days to be added to the [firstDate].
-                  final currentDate =
-                      widget.firstDate.add(Duration(days: index));
+                  final List<DateTime> AllDates = [];
+                  //add dates from firstDate to lastDate including lastDate and firstDate
+                  for (int i = 0; i <= widget.lastDate.difference(widget.firstDate).inDays; i++) {
+                    AllDates.add(widget.firstDate.add(Duration(days: i)));
+                  }
+                  //remove inactive dates from AllDates
+                  if (widget.inactiveDates != null) {
+                    for (DateTime inactiveDate in widget.inactiveDates!) {
+                      if (AllDates.contains(inactiveDate)){
+                          AllDates.remove(inactiveDate);
+                      }
+                    }
+                  }
+                  final currentDate =AllDates[index];
 
                   /// Checks if the [_focusDate] is the same day as [currentDate].
                   bool isSelected =
@@ -235,7 +247,7 @@ class _InfiniteTimeLineWidgetState extends State<InfiniteTimeLineWidget> {
                   print('i : $index');
                   print('$isDisabledDay : $currentDate');
                   print('_itemExtend : $_itemExtend');
-                  return isDisabledDay ? const SizedBox() : Padding(
+                  return isDisabledDay ? null : Padding(
                     key: ValueKey<DateTime>(currentDate),
                     padding: EdgeInsetsDirectional.only(
                       end: _timeLineProps.separatorPadding,
